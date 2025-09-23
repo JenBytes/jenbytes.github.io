@@ -1,7 +1,7 @@
 ---
 import { SITE_TITLE } from '../consts';
 import HeaderLink from './HeaderLink.astro';
-import {SPOTIFY_URL, INSTAGRAM_URL, GITHUB_URL} from '../consts';
+import {SPOTIFY_URL, INSTAGRAM_URL, GITHUB_URL, MASTODON_URL} from '../consts';
 ---
 
 <header>
@@ -14,7 +14,7 @@ import {SPOTIFY_URL, INSTAGRAM_URL, GITHUB_URL} from '../consts';
 			<HeaderLink href="https://allmylinks.com/jenbyte">More</HeaderLink>
 		</div>
 		<div class="social-links">
-			<a href="/" target="_blank">
+			<a href={MASTODON_URL} target="_blank">
 				<span class="sr-only"></span>
 				<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32"
 					><path

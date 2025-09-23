@@ -8,3 +8,4 @@ export const SITE_DESCRIPTION = 'Welcome to my website!';
 export const INSTAGRAM_URL = "https://instagram.com/jen.byte"
 export const GITHUB_URL = "https://github.com/jenbytes"
 export const SPOTIFY_URL = "https://spotify.jenbyte.com"
+export const MASTODON_URL = "https://norden.social/@jenbyte"
