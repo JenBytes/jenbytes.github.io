@@ -1,63 +1,178 @@
 ---
 import AboutHeroImage from '../assets/blog-placeholder-about.jpg';
 import Layout from '../layouts/BlogPost.astro';
+import { formatDate } from '../utils/formatDate.ts';
+
+const fancySpiritsUrl = "https://fancyspirits.com";
 ---
 
+<style>
+  .about-section {
+    margin-bottom: 2.5rem;
+    scroll-margin-top: 80px;
+  }
+  .about-heading {
+    font-size: 1.5em;
+    font-weight: 700;
+    margin-bottom: 0.6em;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+  }
+  .about-link {
+    opacity: 0.3;
+    transition: opacity 0.2s;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1em;
+    margin-left: 0.2em;
+  }
+  .about-heading:hover .about-link,
+  .about-link:focus {
+    opacity: 1;
+  }
+  .about-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1em;
+    background: rgba(255,255,255,0.03);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .about-table th, .about-table td {
+    padding: 0.75em 1em;
+    text-align: left;
+    border-bottom: 1px solid #e2e2e2;
+    background: none;
+    font-size: 1em;
+  }
+  .about-table th {
+    background: rgba(0,0,0,0.03);
+    font-weight: 600;
+  }
+  .about-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  /* Subheading style for intro */
+  .about-intro-subheading {
+    font-size: 2.2em;
+    font-weight: 700;
+    margin-bottom: 0.6em;
+    margin-top: 0.2em;
+    letter-spacing: -1px;
+    line-height: 1.1;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+  }
+
+  /* Styled anchor links in intro */
+  .about-inline-link {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1.5px dashed transparent;
+    transition: border-bottom 0.18s, color 0.18s, background 0.18s;
+    cursor: pointer;
+    padding: 0 .1em;
+    border-radius: 0.2em;
+    position: relative;
+  }
+  .about-inline-link:hover,
+  .about-inline-link:focus {
+    background: rgba(100, 132, 255, 0.10);
+    border-bottom: 1.5px solid #6484ff;
+    color: #6484ff;
+    outline: none;
+  }
+</style>
+
 <Layout
-	title="About Me"
-	description="Lorem ipsum dolor sit amet"
-	pubDate={new Date('August 08 2021')}
-	heroImage={AboutHeroImage}
+  title="About Me"
+  description="Jenny — music producer, DJ, software developer, and label manager"
+  pubDate={new Date('2025-10-01')}
+  heroImage={AboutHeroImage}
 >
-	<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-		labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo
-		viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam
-		adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus
-		et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus
-		vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque
-		sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet. 
-	</p>
+  <div class="about-intro-subheading">
+    Hi, I’m Jenny
+  </div>
+  <p>
+    I’m a
+    <a href="#music" class="about-inline-link" aria-label="Jump to Music Producer Section">music producer</a>,
+    <a href="#dj" class="about-inline-link" aria-label="Jump to DJ Section">DJ</a>,
+    <a href="#dev" class="about-inline-link" aria-label="Jump to Software Developer Section">software developer</a>,
+	and
+	<a href="#music" class="about-inline-link" aria-label="Jump to Music Producer Section"> label manager</a>.
+  </p>
 
-	<p>
-		Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non
-		tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non
-		blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna
-		porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis
-		massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc.
-		Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis
-		bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra
-		massa massa ultricies mi.
-	</p>
+  <div class="about-section" id="music">
+    <div class="about-heading">
+      Music Producer
+    </div>
+    <p>
+      I love making music. That is my passion and a huge part of my life. I produce mainly Drum &amp; Bass, but I don’t limit myself to one genre. I love to push boundaries, experiment, and shape unique sounds that carry their own textures and emotions.
+    </p>
+    <p>
+      Sound design is a form of self-expression for me. I feel it's my job to twist and shape tones until they become something new and unique. It's what I love about making music, and it's what makes my music stand out.
+    </p>
+    <p>
+      I also help manage <a href={fancySpiritsUrl} target="_blank" rel="noopener noreferrer">Fancy Spirits</a>, an independent electronic music label and community.
+    </p>
+  </div>
 
-	<p>
-		Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl
-		suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet
-		nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae
-		turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem
-		dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat
-		semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus
-		vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum
-		facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam
-		vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla
-		urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
-	</p>
+  <div class="about-section" id="dj">
+    <div class="about-heading">
+      DJ
+    </div>
+    <p>
+      In addition to producing music, I also love bringing my sound to the stage as a DJ. Performing live gives me the chance to share not only my own tracks, but also the music I personally connect with and enjoy.
+    </p>
+    <p>
+      There’s something special about blending my productions with the sounds I love and then watching people react, dance, and connect to that energy.
+    </p>
+    <p>
+      On my website, you’ll find a <a href="/" target="_self">DJ page</a> where I keep a record of previous performances and provide booking information. I’m always open to all performance opportunities, from underground club nights to big events. I bring with me a mix of passion, authenticity, and a drive to make every set unique.
+    </p>
+  </div>
 
-	<p>
-		Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper
-		viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc
-		scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur
-		gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus
-		pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim
-		blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id
-		cursus metus aliquam eleifend mi.
-	</p>
-
-	<p>
-		Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta
-		nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam
-		tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci
-		ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar
-		proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
-	</p>
+  <div class="about-section" id="dev">
+    <div class="about-heading">
+      Software Developer
+    </div>
+    <p>
+      Beyond music, I’m interested in technology and software development. I do web development, desktop and mobile app development, and front-end and back-end development, as well as API and UI design.
+    </p>
+    <p>
+      Here’s a snapshot of my current skill set:
+    </p>
+    <table class="about-table">
+      <tr>
+        <th>Area</th>
+        <th>Technologies / Frameworks</th>
+      </tr>
+      <tr>
+        <td>Languages</td>
+        <td>C# (.NET), Python, HTML/JS/CSS</td>
+      </tr>
+      <tr>
+        <td>Web</td>
+        <td>Astro, FastAPI, Django</td>
+      </tr>
+      <tr>
+        <td>Desktop</td>
+        <td>Avalonia, MAUI, WPF</td>
+      </tr>
+      <tr>
+        <td>Mobile</td>
+        <td>MAUI, Avalonia</td>
+      </tr>
+      <tr>
+        <td>API/UI</td>
+        <td>Design & Implementation</td>
+      </tr>
+    </table>
+    <p style="font-size: 0.97em; color: #888; margin-top: 0.5em;">
+      I’m always exploring new tech and creative ways to blend my love for music and software.
+    </p>
+  </div>
 </Layout>
